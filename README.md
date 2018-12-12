@@ -1,2 +1,2 @@
-# fossdoc
-FossDoc server API usage examples
+# FossDoc
+FossDoc server API usage examples.
