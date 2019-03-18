@@ -28,6 +28,9 @@ namespace load.@new.emails
 				//Якщо у вас SSL-з'єднання, формат строки інший: "iiop-ssl://localhost:11301/AccessRoot;Login=dilovod;Password=123;AuthenticationAlgorithm=FossDoc;ClientAuthentication=Foss.FossDoc.ApplicationServer.Connection.ClientSSLAuthentication, Foss.FossDoc.ApplicationServer.Connection;"
 				string connectionString = "URL=corbaloc::1.2@andrewsalko:11301/AccessRoot;Login=Деловод;Password=123;AuthenticationAlgorithm=FossDoc;";
 
+				//Якщо у вас Windows-аутентифікація (ActiveDirectory) то логін та пароль передавати не потрібно:
+				//string connectionString = "URL=corbaloc::1.2@andrewsalko:11301/AccessRoot;AuthenticationAlgorithm=Windows;";
+
 				//Ви можете зберігати сессію достатньо довго, але не забувайте про Dispose
 				using (ISession session = (ISession)Foss.FossDoc.ApplicationServer.Connection.Connector.Connect(connectionString))
 				{

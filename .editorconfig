@@ -1,0 +1,57 @@
+﻿# top-most EditorConfig file 
+root = true
+
+[*.{cs,wxs}]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+charset = utf-8
+trim_trailing_whitespace = true
+
+#  use simple 'int' instead of Int32 and string (not String)
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+dotnet_style_predefined_type_for_member_access = true:suggestion
+
+# don't allow { } (block) in single line
+csharp_preserve_single_line_blocks = false
+
+# don't allow single line if (x==0) { }
+csharp_preserve_single_line_statements = false
+
+dotnet_sort_system_directives_first = true
+
+
+#------------ if prefix needed (void _ProtectedMethod)
+dotnet_naming_rule.protected_prefix_symbol.severity = suggestion
+dotnet_naming_rule.protected_prefix_symbol.symbols = private_and_protected_things
+dotnet_naming_rule.protected_prefix_symbol.style = prefix_for_private_and_protected_style
+
+dotnet_naming_symbols.private_and_protected_things.applicable_kinds = property, method, field, event
+dotnet_naming_symbols.private_and_protected_things.applicable_accessibilities = private, protected
+
+dotnet_naming_style.prefix_for_private_and_protected_style.required_prefix = _
+dotnet_naming_style.prefix_for_private_and_protected_style.capitalization = pascal_case
+
+#------------ const is UPPER_CASE
+dotnet_naming_rule.constant_fields_should_be_upper_case.severity = suggestion
+dotnet_naming_rule.constant_fields_should_be_upper_case.symbols  = constant_fields
+dotnet_naming_rule.constant_fields_should_be_upper_case.style    = upper_case_style
+
+dotnet_naming_symbols.constant_fields.applicable_kinds   = field
+dotnet_naming_symbols.constant_fields.required_modifiers = const
+
+dotnet_naming_style.upper_case_style.capitalization = all_upper
+
+#------------ arguments in camel_case (like userName, NOT UserName!)
+
+dotnet_naming_rule.arguments_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.arguments_should_be_camel_case.symbols  = arguments_symbols
+dotnet_naming_rule.arguments_should_be_camel_case.style    = arguments_case_style
+
+dotnet_naming_symbols.arguments_symbols.applicable_kinds   = parameter
+dotnet_naming_style.arguments_case_style.capitalization = camel_case
+
+
+
+
+

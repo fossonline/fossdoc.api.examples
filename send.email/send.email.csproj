@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D650009-52CB-43FA-B91A-1F6456EFB817}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>send.email</RootNamespace>
+    <AssemblyName>send.email</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Foss.FossDoc.ApplicationServer.Connection">
+      <HintPath>..\Assemblies\Foss.FossDoc.ApplicationServer.Connection.dll</HintPath>
+    </Reference>
+    <Reference Include="Foss.FossDoc.ApplicationServer.Interfaces">
+      <HintPath>..\Assemblies\Foss.FossDoc.ApplicationServer.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Foss.FossDoc.ExternalModules.BusinessLogic.Interfaces">
+      <HintPath>..\Assemblies\Foss.FossDoc.ExternalModules.BusinessLogic.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Foss.FossDoc.Messaging.MailMessageAdapting.Interfaces">
+      <HintPath>..\Assemblies\Foss.FossDoc.Messaging.MailMessageAdapting.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Foss.TemplateLibrary">
+      <HintPath>..\Assemblies\Foss.TemplateLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="FossDocApplicationServerDotNetProxyStubs">
+      <HintPath>..\Assemblies\FossDocApplicationServerDotNetProxyStubs.dll</HintPath>
+    </Reference>
+    <Reference Include="IIOPChannel">
+      <HintPath>..\Assemblies\IIOPChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="SSLPlugin">
+      <HintPath>..\Assemblies\SSLPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
