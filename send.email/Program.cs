@@ -88,6 +88,12 @@ namespace send.email
 					propsForMessage.Add(Converters.Properties.ObjectPropertyBuilder.Create(defaultAddr.Type, Foss.FossDoc.ApplicationServer.Messaging.Schema.Message.PR_SENDER_ADDRTYPE));
 					propsForMessage.Add(Converters.Properties.ObjectPropertyBuilder.Create(defaultAddr.Name, Foss.FossDoc.ApplicationServer.Messaging.Schema.Message.PR_SENDER_NAME));
 
+					//якщо необхідно отримати звіти про доставку або прочитання листа:
+					//Звіт про доставку потрібен
+					propsForMessage.Add(Converters.Properties.ObjectPropertyBuilder.Create(true, Foss.FossDoc.ApplicationServer.Messaging.Schema.Message.PR_ORIGINATOR_DELIVERY_REPORT_REQUESTED));
+					//Звіт про прочитання потрібен
+					propsForMessage.Add(Converters.Properties.ObjectPropertyBuilder.Create(true, Foss.FossDoc.ApplicationServer.Messaging.Schema.Message.PR_READ_RECEIPT_REQUESTED));
+
 					OID emailMessageID = obj.CreateObject(folderID, Foss.FossDoc.ApplicationServer.Messaging.Schema.MessagesFolder.PR_CONTAINER_CONTENTS, propsForMessage.ToArray());
 
 					//Тепер, коли обєкт листа вже створено на сервері, ми можемо додати файли (якщо це потрібно)
