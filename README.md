@@ -1,3 +1,12 @@
 # FossDoc
-FossDoc server API usage examples. 
-You need [Visual Studio](https://visualstudio.microsoft.com/vs/community/) to build example projects.
+FossDoc server API приклади використання. 
+Рекомендовано завантажити [Visual Studio](https://visualstudio.microsoft.com/vs/community/) для вивчення та компіляції проектів-прикладів.
+
+## Завантаження поштових повідомлень (проект load.emails)
+
+Базові знання про підключення до сервера, та приклад читання поштових повідомленб.
+
+## Відправка пошти (проект send.email)
+
+Створення листа з файлами, відправка через пошту FossMail.
+
