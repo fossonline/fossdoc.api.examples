@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "load.emails", "load.emails\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "send.email", "send.email\send.email.csproj", "{6D650009-52CB-43FA-B91A-1F6456EFB817}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reports.email", "reports.email\reports.email.csproj", "{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D650009-52CB-43FA-B91A-1F6456EFB817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D650009-52CB-43FA-B91A-1F6456EFB817}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D650009-52CB-43FA-B91A-1F6456EFB817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
