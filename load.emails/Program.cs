@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ using System.IO;
 using Foss.FossDoc.ApplicationServer.ObjectDataManagment;
 using Foss.FossDoc.ApplicationServer.IO;
 
-namespace load.@new.emails
+namespace load.emails
 {
 	/// <summary>
 	/// Демонструє підключення до сервера (від імені користувача), перевірку чи є нові листи (email), та завантажує файли з листа та деякі властивості.
@@ -43,18 +43,20 @@ namespace load.@new.emails
 
 					//структура DS.OID схожа на Guid, але має додаткові 4 байти. усі об'єкти у FossDoc мають свій унікальний ідентифікатор
 
-					//Нижче ми готуємо умову для пошуку (restrict).
-					//Умова "Прочитано" НЕ рівно true. Але це спрацює лише коли властивість встановлено (а для нового листа його якраз не буде)
-					PropertyRestrictionHelper propRead = new PropertyRestrictionHelper(Foss.FossDoc.ApplicationServer.ObjectDataManagment.Schema.PropertyTags.ObjectReaded, true, DS.relopNE.ConstVal);
-					TableRestrictionHelper tblNotReadLetters = new TableRestrictionHelper(DS.resProperty.ConstVal, propRead);
 
-					//а ось цей блок відбирає "властивість Прочитано не знайдено"
-					ExistRestrictionHelper readExists = new ExistRestrictionHelper(Foss.FossDoc.ApplicationServer.ObjectDataManagment.Schema.PropertyTags.ObjectReaded);
-					TableRestrictionHelper tblReadExists = new TableRestrictionHelper(DS.resExist.ConstVal, readExists);
-					TableRestrictionHelper tblNot = new TableRestrictionHelper(DS.resNOT.ConstVal, tblReadExists);
+					//Нам потрібен "фільтр" щоб знайти повідомлення за різними ознаками, наприклад "непрочитані", або у діапазоні дати.
+					var nonReadRestrict = SearchRestrictions.GetRestrictForNonReadMessages();
 
-					//Комплексна умова OR містить дві умови: "Прочитано НЕ є true" та "Прочитано не існує" 
-					TableRestrictionHelper tblMain = new TableRestrictionHelper(DS.resOR.ConstVal, tblNot, tblNotReadLetters);
+					//Дивись клас SearchRestrictions - приклади пошуку за діапазонами дат, або більше-менше заданої дати.
+					var today = DateTime.Now;
+
+					DateTime startDate = today;
+					//кінець поточного дня
+					DateTime endDate = new DateTime(today.Year, today.Month, today.Day, 23, 59, 59);
+					//PR_MESSAGE_DELIVERY_TIME - "Отримано" (дата отримання листа)
+					var dateRangeRestrict = SearchRestrictions.GetDateRangeRestriction(startDate, endDate, Foss.FossDoc.ApplicationServer.Messaging.Schema.InboundMessage.PR_MESSAGE_DELIVERY_TIME);
+
+					var restrict = nonReadRestrict; //Можна застосувати dateRangeRestrict - для пошуку листів у діапазоні дати отримання
 
 					//Метод GetChildren отримує дочірні обєкти в батьківському об'єкті за вказаним тегом.
 					//Тег - можна вважати іменем властивості, хоча це структура з 4 байтів, наприклад: 0x360F1F00 - це тег "Документи в папці".
@@ -62,7 +64,7 @@ namespace load.@new.emails
 					//наведений приклад GetChildren отримує листи (ідентифікатори) з папки Вхідні за достатньо популярним тегом "Документи в папці", із застосуванням фільтру tblMain.
 					//У папці може бути тисячі листів, а нам потрібні тількі нові (непрочитані).
 
-					OID[] messagesIDs = obj.GetChildren(new OID[] { inboxID }, new TPropertyTag[] { Foss.FossDoc.ApplicationServer.Messaging.Schema.MessagesFolder.PR_CONTAINER_CONTENTS }, tblMain);
+					OID[] messagesIDs = obj.GetChildren(new OID[] { inboxID }, new TPropertyTag[] { Foss.FossDoc.ApplicationServer.Messaging.Schema.MessagesFolder.PR_CONTAINER_CONTENTS }, restrict);
 					if (messagesIDs == null || messagesIDs.Length == 0)
 					{
 						_Log("Нових листів не знайдено");
