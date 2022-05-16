@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "load.emails", "load.emails\load.emails.csproj", "{E2D1D79C-B8D2-46B8-9DD6-A497672D5DF0}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reports.email", "reports.email\reports.email.csproj", "{D5E64E1A-FCFF-4391-9AC5-8023787BBAE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "document.outgoing.letter", "document.outgoing.letter\document.outgoing.letter.csproj", "{9B492D10-D6A2-43E6-AB83-4E8DC2E0BADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fossdocmail.send.xml.by.email", "fossdocmail.send.xml.by.email\fossdocmail.send.xml.by.email.csproj", "{45B67C68-DD0D-4317-8E3B-407675F03317}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9B492D10-D6A2-43E6-AB83-4E8DC2E0BADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B492D10-D6A2-43E6-AB83-4E8DC2E0BADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B492D10-D6A2-43E6-AB83-4E8DC2E0BADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B67C68-DD0D-4317-8E3B-407675F03317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B67C68-DD0D-4317-8E3B-407675F03317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B67C68-DD0D-4317-8E3B-407675F03317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B67C68-DD0D-4317-8E3B-407675F03317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
