@@ -41,7 +41,7 @@ namespace document.outgoing.letter
 				Conveters.Properties.ObjectPropertyBuilder.Create(Foss.FossDoc.ApplicationServer.ObjectDataManagment.DigitalSignature.Schema.DigitalSignature.Category.OID, Foss.FossDoc.ApplicationServer.ObjectDataManagment.Schema.PropertyTags.ObjectCategoryOID),
 
 				//Тип ЕЦП - Файл (константа)
-				Conveters.Properties.ObjectPropertyBuilder.Create(Foss.FossDoc.ExternalModules.BusinessLogic.DigitalSignature.Schema.DSType.Objects.AttachedFileOID, Foss.FossDoc.ExternalModules.BusinessLogic.DigitalSignature.Schema.ObjectDigitalSignature.Attributes.DSType.Tag),
+				Conveters.Properties.ObjectPropertyBuilder.Create(Foss.FossDoc.ExternalModules.BusinessLogic.DigitalSignature.Schema.DSType.Objects.AttachedFileID, Foss.FossDoc.ExternalModules.BusinessLogic.DigitalSignature.Schema.ObjectDigitalSignature.Attributes.DSType.Tag),
 
 				//Автор ЕЦП (умовно - будь-який користувач)
 				Conveters.Properties.ObjectPropertyBuilder.Create(userAuthorID, Foss.FossDoc.ApplicationServer.ObjectDataManagment.DigitalSignature.Schema.DigitalSignature.Attributes.SignatureAuthor.Tag),
